@@ -2,6 +2,7 @@
 
 -include_lib("eunit/include/eunit.hrl").
 
+
 encode_test() ->
   ?assertEqual(<<"a:A\tb:B\nc:C\td:D">>,
                ltsv:encode([[{<<"a">>, <<"A">>}, {<<"b">>, <<"B">>}], [{<<"c">>, <<"C">>}, {<<"d">>, <<"D">>}]])).
