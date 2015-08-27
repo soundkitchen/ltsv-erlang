@@ -1,0 +1,7 @@
+sudo: false
+language: erlang
+otp_release:
+  - 17.0
+  - 17.5
+  - 18.0
+script: "./rebar3 do eunit, ct"
