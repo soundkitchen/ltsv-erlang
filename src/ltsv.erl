@@ -74,14 +74,14 @@ encode_field({Label, Value}) when is_binary(Label), is_binary(Value) ->
 -spec decode(binary()) -> data().
 
 decode(Data) when is_binary(Data) ->
-  Lines = binary:split(Data, <<$\n>>, [global, trim_all]),
+  Lines = binary:split(rstrip(Data), <<$\n>>, [global]),
   lists:map(fun decode_line/1, Lines).
 
 
 -spec decode_line(binary()) -> line().
 
 decode_line(Line) when is_binary(Line) ->
-  Fields = binary:split(Line, <<$\t>>, [global, trim_all]),
+  Fields = binary:split(rstrip(Line), <<$\t>>, [global]),
   lists:map(fun decode_field/1, Fields).
 
 
